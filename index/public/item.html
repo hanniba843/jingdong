@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>商城</title>
+    <link rel="stylesheet" href="./css/item.css">
+    <script src="javascripts/template-web.js"></script>
+    <script src="javascripts/axios.js"></script>
+    <script src="javascripts/better-scroll.js"></script>
+    <script src="./javascripts/flexible.js"></script>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <script src="./javascripts/swiper-bundle.min.js"></script>
+    <script src="./javascripts/item.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+
+<body>
+    <div class="details-header">
+        <div class="back"></div>
+        <div class="tab-wrap">
+            <div class="tab-name active">商品</div>
+            <div class="tab-name">详情</div>
+            <div class="tab-name">评价</div>
+        </div>
+        <div id="cart-icon" class="cart-icon">
+            <div class="spot"></div>
+        </div>
+    </div>
+    <!-- 头部 开始 -->
+    <div class="sub-page"></div>
+
+    <div class="content" style="display: none;"></div>
+    <!-- 头部 结束 -->
+    <!-- 评价 开始 -->
+    <div class="reviews-main">
+        <div class="reviews-title"></div>
+        <div>
+            <div class="reviews-wrap"></div>
+        </div>
+        <!-- 
+                <div class="reviews-list">
+                    <div class="uinfo">
+                        <div class="head"><img src="" alt=""></div>
+                        <div class="nickname">张保安</div>
+                    </div>
+                    <div class="reviews-content">
+                        奥德赛d
+                    </div>
+                    <div class="reviews-date">2021-03-03 13:27:25</div>
+                </div>
+         -->
+        <div class="reviews-more">查看更多评价</div>
+        <div class="no-data" style="display: none;">暂无评价！</div>
+    </div>
+    <!-- 评价 结束 -->
+
+    <!-- 底部开始 -->
+    <div class="bottom-btn-wrap">
+        <div class="btn fav">
+            收藏
+        </div>
+        <div class="btn cart">加入购物车</div>
+    </div>
+    <!-- 底部结束 -->
+    <!-- 加入购物车 开始 -->
+    <div class="mask" style="display: none;"></div>
+    <div class="cart-panel down">
+        <div class="goods-info">
+
+            <!-- <div class="close-panel-wrap">
+                <div class="spot"></div>
+                <div class="line"></div>
+                <div class="close"></div>
+            </div>
+            <div class="goods-img"><img src="" alt=""></div>
+            <div class="goods-wrap">
+                <div class="goods-title"></div>
+                <div class="price">¥128</div>
+                <div class="goods-code">商品编码:124555205</div>
+            </div> -->
+        </div>
+        <div class="attr-wrap">
+            <!-- <div class="attr-list">
+                <div class="attr-name">颜色</div>
+                <div class="val-wrap">
+                    <span class="val">红色</span>
+                    <span class="val">白色</span>
+                </div>
+            </div>
+            <div class="attr-list">
+                <div class="attr-name">尺寸</div>
+                <div class="val-wrap">
+                    <span class="val">L</span>
+                    <span class="val">M</span>
+                </div>
+            </div> -->
+        </div>
+        <div class="amount-wrap">
+            <div class="amount-name">
+                购买数量
+            </div>
+            <div class="amount-input-wrap">
+                <div class="btn dec active">-</div>
+                <div class="amount-input">
+                    <input type="tel">
+                </div>
+                <div class="btn inc">+</div>
+            </div>
+        </div>
+        <div class="sure-btn">确定</div>
+    </div>
+
+    <!-- 加入购物车 结束 -->
+    <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2007; display: none;">
+        <div class="van-toast__text"></div>
+    </div>
+
+</body>
+
+</html>

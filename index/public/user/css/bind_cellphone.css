@@ -1,0 +1,186 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul>li {
+    list-style-type: none;
+}
+
+.page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.sub-header {
+    width: 100%;
+    height: 1.33rem;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #efefef;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    justify-content: space-between;
+    padding: 0 .133rem;
+    box-sizing: border-box;
+}
+
+.sub-header .back {
+    width: 1.06rem;
+    height: 1.06rem;
+    background-image: url(../../images/home/goods/back.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.sub-header .title {
+    width: 79%;
+    height: auto;
+    font-size: 0.426rem;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main {
+    width: 100%;
+    padding-top: 1.36rem;
+}
+
+.main .tip {
+    width: 100%;
+    height: 1.33rem;
+    background-color: #f3f5c4;
+    color: #ac7700;
+    font-size: 0.373rem;
+    display: flex;
+    align-items: center;
+}
+
+.main .tip .icon {
+    width: 0.533rem;
+    height: 0.533rem;
+    background-image: url(../../images/user/mobile/tip.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin-left: 0.533rem;
+    margin-right: 0.266rem;
+}
+
+.main .tip .text {
+    width: auto;
+    height: auto;
+}
+
+.main .input-wrap {
+    width: 93%;
+    height: 1.06rem;
+    border: 1px solid #c5cbcf;
+    border-radius: 4px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.main .input-wrap .cellphone {
+    width: 93%;
+    height: 73%;
+    font-size: 0.373rem;
+    margin-left: 0.266rem;
+    margin-top: 0.066rem;
+}
+
+
+.main .input-wrap {
+    width: 93%;
+    height: 1.06rem;
+    border: 1px solid #c5cbcf;
+    border-radius: 4px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.main .input-wrap .code {
+    width: 68%;
+    height: 73%;
+    font-size: 0.373rem;
+    margin-left: 0.266rem;
+    margin-top: 0.066rem;
+    float: left;
+}
+
+button,
+input,
+textarea {
+    color: inherit;
+    font: inherit;
+}
+
+button,
+input {
+    border: 0 none;
+    border-radius: 0;
+    outline: none;
+}
+
+.main .input-wrap .code-btn {
+    width: 27%;
+    height: 100%;
+    border-left: 1px solid #efefef;
+    float: left;
+    font-size: 0.373rem;
+    color: #717376;
+    text-align: center;
+    line-height: 1.06rem;
+}
+
+.main .save-btn {
+    width: 93%;
+    height: 1.06rem;
+    background-color: #e42321;
+    font-size: 0.373rem;
+    color: #fff;
+    text-align: center;
+    line-height: 1.06rem;
+    margin: 0 auto;
+    border-radius: 4px;
+    margin-top: 0.266rem;
+}
+
+/* 验证通知 开始 */
+.van-toast--html,
+.van-toast--text {
+    width: fit-content;
+    min-width: 96px;
+    min-height: unset;
+    padding: 8px 12px;
+}
+
+.van-toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: content-box;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    word-wrap: break-word;
+    background-color: rgba(50, 50, 51, .88);
+    border-radius: 4px;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+/* 验证通知 结束 */

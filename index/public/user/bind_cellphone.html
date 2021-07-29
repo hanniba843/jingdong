@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bind_cellphone.css">
+    <script src="../javascripts/template-web.js"></script>
+    <script src="../javascripts/axios.js"></script>
+    <script src="../javascripts/better-scroll.js"></script>
+    <script src="../javascripts/flexible.js"></script>
+    <script src="./js/bind_cellphone.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+
+<body>
+    <div>
+        <!---->
+        <div class="page">
+            <div class="sub-header">
+                <div class="back"></div>
+                <div class="title">绑定手机</div>
+                <!---->
+            </div>
+            <div class="main">
+                <div class="tip">
+                    <div class="icon"></div>
+                    <div class="text">新手机号验证后，即可绑定成功！</div>
+                </div>
+                <div class="input-wrap" style="margin-top: 0.666rem;"><input type="tel" placeholder="绑定手机号"
+                        class="cellphone"></div>
+                <div class="input-wrap" style="margin-top: 0.266rem;"><input type="text" placeholder="请输入短信验证码"
+                        class="code">
+                    <div class="code-btn">获取验证码</div>
+                </div>
+                <div class="save-btn">下一步</div>
+            </div>
+        </div>
+    </div>
+    <!-- 验证提示 -->
+    <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2014; display: none;">
+        <div class="van-toast__text"></div>
+    </div>
+    <!-- 验证提示 -->
+</body>
+
+</html>

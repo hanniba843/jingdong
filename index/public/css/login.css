@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+/* 会员登录 开始 */
+.sub-header {
+    width: 100%;
+    height: 1.33rem;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #efefef;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    justify-content: space-between;
+    padding: 0 0.133rem;
+    box-sizing: border-box;
+}
+
+.sub-header .back {
+    width: 1.06rem;
+    height: 1.06rem;
+    background-image: url(../images/home/goods/back.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.sub-header .title {
+    width: 79%;
+    height: auto;
+    font-size: 0.426rem;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 会员登录 结束 */
+
+
+/* 输入框 开始 */
+.main {
+    width: 100%;
+    padding-top: 1.86rem;
+}
+
+.code-wrap,
+.password-wrap {
+    width: 90%;
+    height: 1.12rem;
+    margin: 0 auto;
+    border-radius: 2px;
+    border: 1px solid #efefef;
+    margin-top: .533rem;
+}
+
+.cellphone-wrap .cellphone input,
+.code-wrap input,
+.password-wrap .password input {
+    width: 92%;
+    height: 82%;
+    font-size: 0.373rem;
+    padding-left: 0.266rem;
+}
+
+button,
+input,
+textarea {
+    color: inherit;
+    font: inherit;
+}
+
+button,
+input {
+    border: 0 none;
+    border-radius: 0;
+    outline: none;
+}
+
+input {
+    padding: 1px 0;
+}
+
+.password-wrap {
+    display: flex;
+}
+
+.password-wrap .password {
+    width: 80%;
+    height: 100%;
+}
+
+.password-wrap .switch-wrap {
+    width: 20%;
+    margin-top: 0.133rem;
+}
+
+.van-switch {
+    position: relative;
+    display: inline-block;
+    box-sizing: content-box;
+    width: 2em;
+    font-size: 30px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 1em;
+    transition: background-color .3s;
+}
+
+.van-switch,
+.van-switch__node {
+    height: 1em;
+    background-color: #fff;
+}
+
+.van-switch__node {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 1em;
+    border-radius: 100%;
+    box-shadow: 0 3px 1px 0 rgba(0, 0, 0, .05), 0 2px 2px 0 rgba(0, 0, 0, .1), 0 3px 3px 0 rgba(0, 0, 0, .05);
+    transition: transform .3s cubic-bezier(.3, 1.05, .4, 1.05);
+}
+
+.sure-btn {
+    width: 85%;
+    height: 1.06rem;
+    margin: 0 auto;
+    background: #eb1625;
+    color: #fff;
+    font-size: 0.48rem;
+    line-height: 1.06rem;
+    text-align: center;
+    margin-top: 0.533rem;
+    border-radius: 4px;
+}
+
+/* 输入框  结束 */
+
+/* 忘记密码 开始 */
+.fastreg-wrap {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    font-size: 0.32rem;
+    margin-top: 0.4rem;
+}
+
+.fastreg-wrap img {
+    width: 0.426rem;
+    height: 0.426rem;
+    vertical-align: middle;
+}
+
+/* 忘记密码 结束 */
+
+
+/* 验证通知 开始 */
+.van-toast--html,
+.van-toast--text {
+    width: fit-content;
+    min-width: 96px;
+    min-height: unset;
+    padding: 8px 12px;
+}
+
+.van-toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: content-box;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    word-wrap: break-word;
+    background-color: rgba(50, 50, 51, .88);
+    border-radius: 4px;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+/* 验证通知 结束 */

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/profile.css">
+    <script src="../javascripts/template-web.js"></script>
+    <script src="../javascripts/axios.js"></script>
+    <script src="../javascripts/better-scroll.js"></script>
+    <script src="../javascripts/flexible.js"></script>
+    <script src="./js/profile.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+
+<body>
+    <div>
+
+        <div class="page">
+            <div class="sub-header">
+                <div class="back"></div>
+                <div class="title">个人资料</div>
+                <div class="right-btn">保存</div>
+            </div>
+            <div class="main">
+                <ul class="head">
+                    <li>头像</li>
+                    <li><img src="../images/user/my/default-head.png" alt=""><input type="file"></li>
+                </ul>
+                <ul class="list">
+                    <li>昵称</li>
+                    <li><input type="text" placeholder="请设置昵称"></li>
+                    <li class="arrow"></li>
+                </ul>
+                <ul class="list">
+                    <li>性别</li>
+                    <li><input type="text" placeholder="请选择性别" readonly="readonly"></li>
+                    <li class="arrow"></li>
+                </ul>
+            </div>
+            <div class="van-overlay" style="z-index: 2025; display: none;"></div>
+            <div data-v-335e170c=""
+                class="van-popup van-popup--round van-popup--bottom van-popup--safe-area-inset-bottom van-action-sheet"
+                style="z-index: 2026; display: none;">
+                <div data-v-335e170c="" class="van-action-sheet__header van-hairline--bottom">请选择性别<i data-v-335e170c=""
+                        class="van-icon van-icon-close van-action-sheet__close">
+                        <!----></i></div><button data-v-335e170c=""
+                    class="van-action-sheet__item van-hairline--top"><span data-v-335e170c=""
+                        class="van-action-sheet__name">男</span></button><button data-v-335e170c=""
+                    class="van-action-sheet__item van-hairline--top"><span data-v-335e170c=""
+                        class="van-action-sheet__name">女</span></button><button data-v-335e170c=""
+                    class="van-action-sheet__cancel">取消</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2052; display: none;">
+        <div class="van-toast__text"></div>
+    </div>
+</body>
+
+</html>

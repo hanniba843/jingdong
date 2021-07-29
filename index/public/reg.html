@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>我的</title>
+    <link rel="stylesheet" href="./css/reg.css">
+    <script src="javascripts/template-web.js"></script>
+    <script src="javascripts/axios.js"></script>
+    <script src="javascripts/better-scroll.js"></script>
+    <script src="./javascripts/flexible.js"></script>
+    <script src="./javascripts/reg.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+
+<body>
+    <div class="page">
+        <!-- 会员登录  开始 -->
+        <div class="sub-header">
+            <div class="back"></div>
+            <div class="title">会员注册</div>
+        </div>
+        <!-- 会员登录  结束 -->
+
+        <!-- 输入框 开始  -->
+
+        <div class="main">
+            <div class="inputs">
+                <input type="text" placeholder="验证码">
+                <div class="vcode-img">
+                    <img src="http://vueshop.glbuys.com/api/vcode/chkcode?token=1ec949a15fb709370f" alt="">
+                </div>
+            </div>
+            <div class="cellphone-wrap">
+                <div class="cellphone">
+                    <input type="tel" placeholder="请输入手机号">
+                </div>
+                <div class="code-btn">获取短信验证码</div>
+            </div>
+            <div class="code-wrap">
+                <input type="text" placeholder="请输入短信验证码">
+            </div>
+            <div class="password-wrap">
+                <div class="password">
+                    <input type="password" placeholder="密码">
+                </div>
+                <div class="switch-wrap">
+                    <div class="van-switch" role="switch" aria-checked="false">
+                        <div class="van-switch__node"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sure-btn">注册</div>
+        </div>
+        <!-- 输入框  结束 -->
+
+        <!-- 验证通知 开始 -->
+        <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2009; display: none;">
+            <div class="van-toast__text"></div>
+        </div>
+        <!-- 验证通知 结束 -->
+    </div>
+</body>
+
+</html>

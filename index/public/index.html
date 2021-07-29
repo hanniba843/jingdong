@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>商城</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="javascripts/template-web.js"></script>
+    <script src="javascripts/axios.js"></script>
+    <script src="javascripts/better-scroll.js"></script>
+    <script src="./javascripts/flexible.js"></script>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <script src="./javascripts/swiper-bundle.min.js"></script>
+    <script src="./javascripts/index.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+
+<body style="background-color: rgb(239,239,239);">
+    <div class="load" class="page">
+        <!-- 头部导航  开始 -->
+        <div class="header">
+            <div class="classify-icon"></div>
+            <div class="search-wrap">
+                <div class="search-icon"></div>
+                <div class="text">请输入宝贝名称</div>
+            </div>
+            <div class="login">
+                登录
+            </div>
+        </div>
+        <!-- 头部导航 结束 -->
+
+
+        <!-- one  轮播图 开始 -->
+
+        <div class="banner-wrap">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./images/home/index/banner_1.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./images/home/index/banner_2.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./images/home/index/banner_3.jpg" alt=""></div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination" style="width: 100%;"></div>
+            </div>
+        </div>
+        <!-- one 轮播图 结束 -->
+
+        <!-- one 顶部分类 开始 -->
+        <div class="quick-nav">
+            <script id="onetop" type="text/html">
+                {{each}}
+                <ul class="item">
+                    <li>
+                        <img src={{$value.image}} alt="">
+                    </li>
+                    <li>{{$value.title}}</li>
+                </ul>
+                {{/each}}
+            </script>
+            <script>
+                var quickNav = document.querySelector('.quick-nav');
+                axios.get('/quick-nav').then((res) => {
+                    quickNav.innerHTML = template('onetop', res.data.ids)
+                    // console.log(res.data.ids.length);
+                    for (let i = 0; i < res.data.ids.length; i++) {
+                        // console.log(i);
+                        $('.item')[i].onclick = function () {
+                            // console.log(res.data.ids[i].cid);
+                            location.href = 'classify.html';
+                            window.localStorage.setItem('user', res.data.ids[i].cid)
+                        }
+                    }
+                })
+            </script>
+            <!-- <ul class="item">
+                <li>
+                    <img src="./1484287695.png" alt="">
+                </li>
+                <li>潮流女装</li>
+            </ul>
+            <ul class="item">
+                <li>
+                    <img src="./1484287695.png" alt="">
+                </li>
+                <li>品牌男装</li>
+            </ul>
+            <ul class="item">
+                <li>
+                    <img src="./1484287695.png" alt="">
+                </li>
+                <li>电脑办公</li>
+            </ul>
+            <ul class="item">
+                <li>
+                    <img src="./1484287695.png" alt="">
+                </li>
+                <li>手机数码</li>
+            </ul> -->
+        </div>
+        <!-- one 顶部分类 结束 -->
+    </div>
+
+    <!-- 潮流女装 开始 -->
+    <div id="box">
+        <div class="goods-main"></div>
+        <div class="goods-main"></div>
+        <div class="goods-main"></div>
+    </div>
+    <script id="oneTidalCurrent1" type="text/html">
+        {{each}}
+        <div class="classify-name color-0">
+            —— {{$value[0].title}} ——
+        </div>
+        <div class="goods-row-1">
+            <div class="goods-column">
+                <div class="goods-title">
+                    {{$value[0].items[0].title}}
+                </div>
+                <div class="goods-tip">精品打折</div>
+                <div class="goods-price bg-color-0">{{$value[0].items[0].price}}</div>
+                <div class="goods-image">
+                    <img src={{$value[0].items[0].image}} alt="">
+                </div>
+            </div>
+            <div class="goods-column">
+                <div class="goods-list">
+                    <div class="goods-list-title">
+                        {{$value[0].items[1].title}}
+                    </div>
+                    <div class="goods-list-tip">品质精挑</div>
+                    <div class="goods-list-image"><img src={{$value[0].items[1].image}} alt=""></div>
+                </div>
+                <div class="goods-list">
+                    <div class="goods-list-title">
+                        {{$value[0].items[2].title}}
+                    </div>
+                    <div class="goods-list-tip">品质精挑</div>
+                    <div class="goods-list-image"><img src={{$value[0].items[2].image}} alt=""></div>
+                </div>
+            </div>
+        </div>
+        <div class="goods-row-2">
+            <div class="goods-list">
+                <div class="goods-title">
+                    {{$value[0].items[3].title}}
+                </div>
+                <div class="goods-image">
+                    <img src={{$value[0].items[3].image}} alt="">
+                </div>
+                <div class="price">{{$value[0].items[3].price}}</div>
+                <div class="price line">¥576</div>
+            </div>
+            <div class="goods-list">
+                <div class="goods-title">
+                    {{$value[0].items[4].title}}
+                </div>
+                <div class="goods-image">
+                    <img src={{$value[0].items[4].image}} alt="">
+                </div>
+                <div class="price">{{$value[0].items[4].price}}</div>
+                <div class="price line">¥576</div>
+            </div>
+            <div class="goods-list">
+                <div class="goods-title">
+                    {{$value[0].items[5].title}}
+                </div>
+                <div class="goods-image">
+                    <img src={{$value[0].items[5].image}} alt="">
+                </div>
+                <div class="price">{{$value[0].items[5].price}}</div>
+                <div class="price line">¥576</div>
+            </div>
+            <div class="goods-list">
+                <div class="goods-title">
+                    {{$value[0].items[6].title}}
+                </div>
+                <div class="goods-image">
+                    <img src={{$value[0].items[6].image}} alt="">
+                </div>
+                <div class="price">{{$value[0].items[6].price}}</div>
+                <div class="price line">¥576</div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script id="oneTidalCurrent2" type="text/html">
+        {{each}}
+        <div class="goods-main">
+            <div class="classify-name color-1">
+                —— {{$value[1].title}} ——
+            </div>
+            <div class="goods-row-1">
+                <div class="goods-column-2">
+                    <div class="goods-title">
+                        {{$value[1].items[0].title}}
+                    </div>
+                    <div class="goods-tip">火爆开售</div>
+                    <goods-image>
+                        <img src={{$value[1].items[0].image}} alt="">
+                    </goods-image>
+                </div>
+                <div class="goods-column-2">
+                    <div class="goods-title">
+                        {{$value[1].items[1].title}}
+                    </div>
+                    <div class="goods-tip">火爆开售</div>
+                    <goods-image>
+                        <img src={{$value[1].items[1].image}} alt="">
+                    </goods-image>
+                </div>
+            </div>
+            <div class="goods-row-2">
+                <div class="goods-list">
+                    <div class="goods-title">
+                        {{$value[1].items[2].title}}
+                    </div>
+                    <div class="goods-image">
+                        <img src={{$value[1].items[2].image}} alt="">
+                    </div>
+                    <div class="price">{{$value[1].items[2].price}}</div>
+                    <div class="price line">¥576</div>
+                </div>
+                <div class="goods-list">
+                    <div class="goods-title">
+                        {{$value[1].items[3].title}}
+                    </div>
+                    <div class="goods-image">
+                        <img src={{$value[1].items[3].image}} alt="">
+                    </div>
+                    <div class="price">{{$value[1].items[3].price}}</div>
+                    <div class="price line">¥576</div>
+                </div>
+                <div class="goods-list">
+                    <div class="goods-title">
+                        {{$value[1].items[4].title}}
+                    </div>
+                    <div class="goods-image">
+                        <img src={{$value[1].items[4].image}} alt="">
+                    </div>
+                    <div class="price">{{$value[1].items[4].price}}</div>
+                    <div class="price line">¥576</div>
+                </div>
+                <div class="goods-list">
+                    <div class="goods-title">
+                        {{$value[1].items[5].title}}
+                    </div>
+                    <div class="goods-image">
+                        <img src={{$value[1].items[5].image}} alt="">
+                    </div>
+                    <div class="price">{{$value[1].items[5].price}}</div>
+                    <div class="price line">¥576</div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script id="oneTidalCurrent3" type="text/html">
+        {{each}}
+        <div class="goods-main">
+            <div class="classify-name color-2">
+                —— {{$value[2].title}} ——
+            </div>
+            <div class="goods-row-1">
+                <div class="goods-column">
+                    <div class="goods-title">
+                        {{$value[2].items[0].title}}
+                    </div>
+                    <div class="goods-tip">精品打折</div>
+                    <div class="goods-price bg-color-0">{{$value[2].items[0].price}}</div>
+                    <div class="goods-image">
+                        <img src={{$value[2].items[0].image}} alt="">
+                    </div>
+                </div>
+                <div class="goods-column">
+                    <div class="goods-list">
+                        <div class="goods-list-title">
+                            {{$value[2].items[1].title}}
+                        </div>
+                        <div class="goods-list-tip">品质精挑</div>
+                        <div class="goods-list-image"><img src={{$value[2].items[1].image}} alt=""></div>
+                    </div>
+                    <div class="goods-list">
+                        <div class="goods-list-title">
+                            {{$value[2].items[2].title}}
+                        </div>
+                        <div class="goods-list-tip">品质精挑</div>
+                        <div class="goods-list-image"><img src={{$value[2].items[2].image}} alt=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="goods-row-2">
+                <div class="goods-list">
+                    <div class="goods-title">
+                        {{$value[2].items[3].title}}
+                    </div>
+                    <div class="goods-image">
+                        <img src={{$value[2].items[3].image}} alt="">
+                    </div>
+                    <div class="price">{{$value[2].items[3].price}}</div>
+                    <div class="price line">¥576</div>
+                </div>
+                <div class="goods-list">
+                    <div class="goods-title">
+                        {{$value[2].items[4].title}}
+                    </div>
+                    <div class="goods-image">
+                        <img src={{$value[2].items[4].image}} alt="">
+                    </div>
+                    <div class="price">{{$value[2].items[4].price}}</div>
+                    <div class="price line">¥576</div>
+                </div>
+                <div class="goods-list">
+                    <div class="goods-title">
+                        {{$value[2].items[5].title}}
+                    </div>
+                    <div class="goods-image">
+                        <img src={{$value[2].items[5].image}} alt="">
+                    </div>
+                    <div class="price">{{$value[2].items[5].price}}</div>
+                    <div class="price line">¥576</div>
+                </div>
+                <div class="goods-list">
+                    <div class="goods-title">
+                        {{$value[2].items[6].title}}
+                    </div>
+                    <div class="goods-image">
+                        <img src={{$value[2].items[6].image}} alt="">
+                    </div>
+                    <div class="price">{{$value[2].items[6].price}}</div>
+                    <div class="price line">¥576</div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script>
+        var goodsMain0 = document.querySelectorAll('.goods-main')[0];
+        var goodsMain1 = document.querySelectorAll('.goods-main')[1];
+        var goodsMain2 = document.querySelectorAll('.goods-main')[2];
+        axios.get('/goods-main').then((res) => {
+            goodsMain0.innerHTML = template('oneTidalCurrent1', res.data);
+            goodsMain1.innerHTML = template('oneTidalCurrent2', res.data);
+            goodsMain2.innerHTML = template('oneTidalCurrent3', res.data);
+            // console.log(res.data.ids[0].items[0].gid);
+            var arr = [];
+            for (let i = 0; i < res.data.ids.length; i++) {
+                for (let j = 0; j < res.data.ids[i].items.length; j++) {
+                    arr.push(res.data.ids[i].items[j].gid);
+                    // console.log(res.data.ids[i].items[j].gid);
+                }
+            }
+            // console.log(arr);
+            var box = document.querySelector('#box');
+            var imgs = box.querySelectorAll('img');
+            for (let i = 0; i < imgs.length; i++) {
+                imgs[i].parentNode.parentNode.onclick = function () {
+                    location.href = 'item.html';
+                    window.localStorage.setItem('user', arr[i]);
+                }
+            }
+        })
+    </script>
+    <!-- 潮流女装 结束 -->
+
+    <!-- 为您推荐 开始 -->
+    <div class="goods-recom-nav">
+        <div class="line"></div>
+        <div class="recom-wrap">
+            <div class="icon"></div>
+            <div class="text">为您推荐</div>
+        </div>
+        <div class="line"></div>
+    </div>
+    <div class="goods-recom"></div>
+    <script id="HomePageRecommendation" type="text/html">
+        {{each ids}}
+        <div class="goods-list">
+            <div class="goods-image">
+                <img src={{$value.image}} alt="">
+            </div>
+            <div class="goods-title">
+                {{$value.title}}
+            </div>
+            <div class="goods-price">{{$value.price}}</div>
+        </div>
+        {{/each}}
+    </script>
+    <script>
+        var goodsRecom = document.querySelector('.goods-recom');
+        axios.get('/Home-page-recommendation').then((res) => {
+            // console.log(res.data.ids[1].gid);
+
+            goodsRecom.innerHTML = template('HomePageRecommendation', res.data);
+            // console.log(goodsRecom.children.length);
+            for (let i = 0; i < goodsRecom.children.length; i++) {
+                goodsRecom.children[i].onclick = function () {
+                    location.href = 'item.html';
+                    window.localStorage.setItem('user', res.data.ids[i].gid);
+                }
+            }
+        })
+    </script>
+
+    <!-- 为您推荐 结束 -->
+
+
+    <!-- 搜索框  开始 -->
+    <div class="search-component" style="display: none;">
+        <div class="search-header">
+            <div class="close"></div>
+            <div class="search-wrap">
+                <div class="search-input-wrap">
+                    <input type="text" placeholder="请输入宝贝名称" class="search">
+                </div>
+                <button class="search-btn"></button>
+            </div>
+        </div>
+        <div class="search-main">
+            <div class="search-title-wrap">
+                <div class="search-title">最近搜索</div>
+                <div class="bin"></div>
+            </div>
+            <div class="search-keywords-wrap">
+                <div class="keywords">连衣裙</div>
+            </div>
+        </div>
+        <div class="search-main">
+            <div class="search-title-wrap">
+                <div class="search-title">热门搜索</div>
+            </div>
+            <div class="search-keywords-wrap">
+                <div class="keywords">连衣裙</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 搜索框 结束 -->
+
+    <!-- 底部开始 -->
+    <div class="button-nav">
+
+        <ul>
+            <li></li>
+            <li>首页</li>
+        </ul>
+
+        <ul>
+            <li></li>
+            <li>购物车</li>
+        </ul>
+
+        <ul>
+            <li></li>
+            <li>我的</li>
+        </ul>
+
+    </div>
+    <!-- 底部结束 -->
+
+
+
+
+    <script src="./javascripts/index.js"></script>
+
+</body>
+
+</html>

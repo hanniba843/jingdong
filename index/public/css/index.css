@@ -1,0 +1,634 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul>li {
+  list-style-type: none;
+}
+
+
+/* one  头部导航 开始 */
+.load .header {
+  width: 100%;
+  height: 1.42857143rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.42857143rem;
+  box-sizing: border-box;
+}
+
+.load .header .classify-icon {
+  height: 0.85714286rem;
+  width: 0.85714286rem;
+  background-image: url(../images/common/class.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.load .header .search-wrap {
+  width: 6.85714286rem;
+  height: 0.74285714rem;
+  border-radius: 4px;
+  background-color: hsla(0, 0%, 100%, 0.5);
+  display: flex;
+  align-items: center;
+}
+
+.load .header .search-wrap .search-icon {
+  width: 0.62857143rem;
+  height: 0.62857143rem;
+  background-image: url(../images/common/search.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  margin-left: 0.28571429rem;
+  margin-right: 0.28571429rem;
+}
+
+.load .header .search-wrap .text {
+  font-size: 0.45714286rem;
+  color: #fff;
+}
+
+.load .header .login {
+  width: auto;
+  height: 0.62857143rem;
+  font-size: 0.42857143rem;
+  color: #fff;
+}
+
+/* one  头部导航 结束 */
+
+
+/* one  轮播图 开始 */
+.load .banner-wrap {
+  width: 100%;
+}
+
+.load .banner-wrap .swiper-container {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.load .banner-wrap img {
+  width: 100%;
+  height: 100%;
+}
+
+/* one  轮播图 结束 */
+
+
+/* one 顶部分类 开始 */
+.load .quick-nav {
+  width: 100%;
+  height: 2.28571429rem;
+  background-color: #fff;
+  margin-top: 0.28571429rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.28571429rem;
+  box-sizing: border-box;
+}
+
+.load .quick-nav .item {
+  width: 2rem;
+}
+
+.load .quick-nav .item li:first-child {
+  width: 1.14285714rem;
+  height: 1.14285714rem;
+  margin: 0 auto;
+}
+
+.load .quick-nav .item li:first-child img {
+  width: 100%;
+  height: 100%;
+}
+
+.load .quick-nav .item li:nth-child(2) {
+  font-size: 0.4rem;
+  color: #7b7f82;
+  text-align: center;
+  margin-top: 0.28571429rem;
+}
+
+/* one 顶部分类 结束 */
+
+/* 潮流女装  开始 */
+.goods-main {
+  width: 100%;
+  height: 9.813333333333333rem;
+  background-color: #fff;
+  margin-top: 0.2666666666666667rem;
+}
+
+.goods-main .color-0 {
+  color: #f73b61;
+}
+
+.goods-main .goods-row-2 {
+  width: 100%;
+  height: 4.26rem;
+  overflow: hidden;
+  display: flex;
+}
+
+.goods-main .goods-row-2 .goods-list {
+  width: 25%;
+  height: 100%;
+  border-right: 1px solid #efefef;
+}
+
+.goods-main .goods-row-2 .goods-title {
+  width: 100%;
+  height: 0.533rem;
+  overflow: hidden;
+  font-size: 0.373rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 0.266rem;
+}
+
+.goods-main .goods-row-2 .goods-image {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 auto;
+  margin-top: 0.266rem;
+}
+
+.goods-main .goods-row-2 .price {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-size: 0.373rem;
+  color: #d32a4e;
+  margin-top: 0.133rem;
+}
+
+.goods-main .goods-row-2 .price.line {
+  color: #7b7f82;
+  text-decoration: line-through;
+  margin-top: 0;
+}
+
+.goods-main .classify-name {
+  width: 100%;
+  height: 0.8533rem;
+  border: 1px solid #efefef;
+  font-size: 0.426rem;
+  text-align: center;
+  line-height: 0.853rem;
+}
+
+.goods-main .goods-row-1 {
+  width: 100%;
+  height: 4.66rem;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  overflow: hidden;
+}
+
+.goods-main .goods-row-1 .goods-column {
+  width: 50%;
+  height: 100%;
+  border-right: 1px solid #efefef;
+  position: relative;
+}
+
+.goods-main .goods-row-1 .goods-column .goods-title {
+  width: 95%;
+  height: 0.426rem;
+  overflow: hidden;
+  position: absolute;
+  left: 0.266rem;
+  top: 0.266rem;
+  font-size: 0.373rem;
+  font-weight: 700;
+}
+
+.goods-main .goods-row-1 .goods-column .goods-tip {
+  width: auto;
+  height: auto;
+  font-size: 0.373rem;
+  color: #cb385d;
+  position: absolute;
+  left: 0.266rem;
+  top: 0.8rem;
+}
+
+.goods-row-1 .goods-column .goods-price.bg-color-0 {
+  background-color: #f21d4f;
+}
+
+.goods-main .goods-row-1 .goods-column .goods-price {
+  width: auto;
+  height: 0.533rem;
+  border-radius: 10px;
+  position: absolute;
+  right: 1.33rem;
+  top: 0.8rem;
+  color: #fff;
+  font-size: 0.373rem;
+}
+
+.goods-main .goods-row-1 .goods-column .goods-image {
+  width: 4rem;
+  height: 2.66rem;
+  position: absolute;
+  left: 0.466rem;
+  bottom: 0.4rem;
+}
+
+.goods-main .goods-row-1 .goods-column .goods-list {
+  width: 100%;
+  height: 50%;
+  border-bottom: 1px solid #efefef;
+  position: relative;
+}
+
+.goods-main .goods-row-1 .goods-column .goods-list-title {
+  width: 2.72rem;
+  height: 0.426rem;
+  overflow: hidden;
+  font-size: 0.373rem;
+  font-weight: 700;
+  position: absolute;
+  z-index: 1;
+  left: 0.266rem;
+  top: 0.266rem;
+}
+
+.goods-main .goods-row-1 .goods-column .goods-list-tip {
+  width: auto;
+  height: auto;
+  font-size: 0.32rem;
+  color: #7b7f82;
+  position: absolute;
+  left: 0.266rem;
+  top: 0.8rem;
+}
+
+.goods-main .goods-row-1 .goods-column .goods-list-image {
+  width: 1.6rem;
+  height: 1.6rem;
+  position: absolute;
+  right: 0.266rem;
+  top: 0.266rem;
+}
+
+/* 潮流女装  结束 */
+
+
+/* 品牌男装 开始 */
+.goods-main .classify-name.color-1 {
+  color: #fe6719;
+}
+
+
+
+.goods-main .goods-row-1 {
+  width: 100%;
+  height: 4.66rem;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  overflow: hidden;
+}
+
+.goods-main .goods-row-1 .goods-column-2,
+.goods-main .goods-row-1 .goods-column {
+  width: 50%;
+  height: 100%;
+  border-right: 1px solid #efefef;
+  position: relative;
+}
+
+.goods-main .goods-row-1 .goods-column-2 .goods-title {
+  width: 95%;
+  height: 0.426rem;
+  overflow: hidden;
+  font-size: 0.373rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 0.266rem;
+}
+
+.goods-main .goods-row-1 .goods-column-2 .goods-tip {
+  width: auto;
+  height: auto;
+  font-size: 0.373rem;
+  color: #7b7f82;
+  text-align: center;
+  margin-top: 0.133rem;
+}
+
+.goods-main .goods-row-1 .goods-column-2 .goods-image {
+  width: 2.4rem;
+  height: 2.66rem;
+  margin: 0 auto;
+  margin-top: 0.133rem;
+}
+
+/* 品牌男装 结束 */
+/* 电脑办公 开始 */
+.goods-main .classify-name.color-2 {
+  color: #5fc600;
+}
+
+/* 电脑办公  结束 */
+
+/* 为您推荐 开始 */
+.goods-recom-nav {
+  width: 100%;
+  height: 1.33rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goods-recom-nav .line {
+  width: 35%;
+  height: 1px;
+  background-color: #d4d4d4;
+}
+
+.goods-recom-nav .recom-wrap {
+  width: 2.4rem;
+  height: 0.586rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goods-recom-nav .recom-wrap .icon {
+  width: 0.533rem;
+  height: 0.533rem;
+  background-image: url(../images/home/index/recom.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.goods-recom-nav .recom-wrap .text {
+  width: auto;
+  height: auto;
+  font-size: 0.426rem;
+  font-weight: 700;
+}
+
+.goods-recom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.266rem;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.goods-recom .goods-list {
+  width: 48%;
+  height: 6rem;
+  background-color: #fff;
+  margin-top: 0.266rem;
+}
+
+.goods-recom .goods-list .goods-image {
+  width: 3.73rem;
+  height: 3.73rem;
+  margin: 0 auto;
+  margin-top: 0.266rem;
+}
+
+.goods-recom .goods-list .goods-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.goods-recom .goods-list .goods-title {
+  width: 100%;
+  height: 1.06rem;
+  overflow: hidden;
+  font-size: 0.373rem;
+  margin-top: 0.133rem;
+}
+
+.goods-recom .goods-list .goods-price {
+  width: auto;
+  height: auto;
+  font-size: 0.426rem;
+  color: #d32a4e;
+  margin-top: 0.133rem;
+}
+
+/* 为您推荐 结束 */
+
+/* 搜索框 开始 */
+.search-component {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+}
+
+.search-component .search-header {
+  width: 100%;
+  height: 1.33rem;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  align-items: center
+}
+
+.search-component .search-header .close {
+  width: 0.666rem;
+  height: 0.666rem;
+  background-image: url(../images/common/search_x.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  margin-left: 0.266rem;
+  margin-right: 0.266rem;
+}
+
+.search-component .search-header .search-wrap {
+  width: 78%;
+  height: 0.853rem;
+  border: 1px solid #b2b2b2;
+  border-radius: 0.133rem;
+  display: flex;
+  align-items: center;
+}
+
+.search-component .search-header .search-wrap .search-input-wrap {
+  width: 85%;
+  height: 100%;
+  border-right: 1px solid #b2b2b2;
+}
+
+.search-component .search-header .search-wrap .search {
+  width: 80%;
+  height: 78%;
+  margin-left: 0.266rem;
+  font-size: 0.373rem;
+}
+
+button,
+input,
+textarea {
+  color: inherit;
+  font: inherit;
+}
+
+.search-component .search-header .search-wrap .search-btn {
+  width: 0.666rem;
+  height: 0.666rem;
+  background-image: url(../images/common/search_icon.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-color: #fff;
+  border: 0 none;
+  outline: none;
+  margin-left: 0.2rem;
+}
+
+.search-component .search-main {
+  width: 100%;
+  margin-top: 0.266rem;
+}
+
+.search-component .search-main .search-title-wrap {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0.533rem;
+  margin-right: 0.533rem;
+}
+
+.search-component .search-main .search-title-wrap .search-title {
+  width: auto;
+  font-size: 0.373rem;
+}
+
+.search-component .search-main .search-title-wrap .bin {
+  width: 0.533rem;
+  height: 0.533rem;
+  background-image: url(../images/common/bin.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.search-component .search-main .search-keywords-wrap {
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 0.533rem;
+  margin-right: 0.533rem;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.search-component .search-main .search-keywords-wrap .keywords {
+  width: 26%;
+  height: 0.8rem;
+  border: 1px solid #efefef;
+  border-radius: 0.853rem;
+  font-size: 0.373rem;
+  text-align: center;
+  overflow: hidden;
+  line-height: 0.8rem;
+  margin-right: 1.3%;
+  margin-left: 1.3%;
+  margin-bottom: 0.266rem;
+  padding-left: 0.133rem;
+  padding-right: 0.133rem;
+}
+
+button,
+input {
+  border: 0 none;
+  border-radius: 0;
+  outline: none;
+}
+
+/* 搜索框 结束 */
+
+/* 尾部 开始 */
+.goods-main img {
+  width: 100%;
+  height: 100%;
+}
+
+.button-nav {
+  width: 100%;
+  height: 1.71428571rem;
+  background-color: #fff;
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.71428571rem;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.button-nav ul {
+  position: relative;
+  width: 1.42857143rem;
+}
+
+.button-nav ul li {
+  font-size: 0.42857143rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.button-nav ul:first-child {
+  color: red;
+}
+
+.button-nav ul:first-child li:first-child {
+  height: 0.85714286rem;
+  width: 0.85714286rem;
+  background-image: url(../images/common/home2.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 50%;
+}
+
+.button-nav ul:nth-child(2) li:first-child {
+  height: 0.85714286rem;
+  width: 0.85714286rem;
+  background-image: url(../images/common/cart1.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 50%;
+}
+
+.button-nav ul:nth-child(3) li:first-child {
+  height: 0.85714286rem;
+  width: 0.85714286rem;
+  background-image: url(../images/common/my1.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 50%;
+}
+
+/* 尾部结束 */

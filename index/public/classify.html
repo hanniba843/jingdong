@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>商品分类</title>
+    <link rel="stylesheet" href="./css/classify.css">
+    <script src="javascripts/template-web.js"></script>
+    <script src="javascripts/axios.js"></script>
+    <script src="javascripts/better-scroll.js"></script>
+    <script src="./javascripts/flexible.js"></script>
+    <script src="./javascripts/classify.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+</head>
+
+<body>
+    <div>
+        <div class="page">
+            <!-- 头部 开始 -->
+            <div class="search-header">
+                <div class="back"></div>
+                <div class="search">请输入宝贝名称</div>
+            </div>
+            <!-- 头部 结束 -->
+
+            <!-- 主体 开始 -->
+            <div class="goods-main">
+                <!-- 左侧 -->
+
+                <div class="classify-wrap">
+                    <!-- <div class="classify-item active"></div> -->
+                    <script id="classify-item" type="text/html">
+                        {{each ids}}
+                        <div class="classify-item">
+                            {{$value.title}}
+                        </div>
+                        {{/each}}
+                    </script>
+                </div>
+                <script>
+                    // var demo = document.querySelector('.classify-wrap');
+                    // console.log(demo.children);
+                    // var arr = [];
+                    // for (let i in demo.children) {
+                    //     arr.push(demo.children[i])
+                    //     console.log(i);
+                    // }
+                    // console.log(arr);
+                </script>
+                <!-- <script>
+                    var classifyWrap = document.querySelector('.classify-wrap');
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'http://vueshop.glbuys.com/api/home/category/menu?token=1ec949a15fb709370f');
+                    xhr.send();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status >= 200 && xhr.status < 300) {
+                                var res = JSON.parse(xhr.response);
+                                // console.log(res);
+                                classifyWrap.innerHTML = template('classify-item', res.data);
+                                var demo = document.querySelector('.classify-wrap');
+                                console.log(demo.children[0]);
+
+                            } else {
+
+                            }
+                        }
+                    }
+                </script> -->
+
+
+                <!-- 右侧 -->
+                <div class="goods-content">
+                    <div class="goods-content-main">
+
+                        <div class="goods-wrap">
+                            <!-- <div class="classify-name">裙装</div>
+                            <div class="goods-items-wrap">
+                                <ul>
+                                    <li><img src="./images/home/goods/goodsdesc1.jpg" alt=""></li>
+                                    <li>裙装裙装6</li>
+                                </ul>
+                                <ul>
+                                    <li><img src="./images/home/goods/goodsdesc1.jpg" alt=""></li>
+                                    <li>裙装裙装6</li>
+                                </ul>
+                                <ul>
+                                    <li><img src="./images/home/goods/goodsdesc1.jpg" alt=""></li>
+                                    <li>裙装裙装6</li>
+                                </ul>
+                                <ul>
+                                    <li><img src="./images/home/goods/goodsdesc1.jpg" alt=""></li>
+                                    <li>裙装裙装6</li>
+                                </ul>
+                                <ul>
+                                    <li><img src="./images/home/goods/goodsdesc1.jpg" alt=""></li>
+                                    <li>裙装裙装6</li>
+                                </ul>
+                                <ul>
+                                    <li><img src="./images/home/goods/goodsdesc1.jpg" alt=""></li>
+                                    <li>裙装裙装6</li>
+                                </ul>
+                                <ul>
+                                    <li><img src="./images/home/goods/goodsdesc1.jpg" alt=""></li>
+                                    <li>裙装裙装6</li>
+                                </ul>
+                                <ul>
+                                    <li><img src="./images/home/goods/goodsdesc1.jpg" alt=""></li>
+                                    <li>裙装裙装6</li>
+                                </ul>
+                                <ul>
+                                    <li><img src="./images/home/goods/goodsdesc1.jpg" alt=""></li>
+                                    <li>裙装裙装6</li>
+                                </ul>
+                            </div> -->
+                        </div>
+
+
+                        <div class="no-data" style="display: none;">没有相关商品！</div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 主体 结束 -->
+
+            <!-- 搜索框  开始 -->
+            <div class="search-component" style="display: none;">
+                <div class="search-header">
+                    <div class="close"></div>
+                    <div class="search-wrap">
+                        <div class="search-input-wrap">
+                            <input type="text" placeholder="请输入宝贝名称" class="search"
+                                style="border: 0 none;border-radius: 0;">
+                        </div>
+                        <button class="search-btn"></button>
+                    </div>
+                </div>
+                <div class="search-main">
+                    <div class="search-title-wrap">
+                        <div class="search-title">最近搜索</div>
+                        <div class="bin"></div>
+                    </div>
+                    <div class="search-keywords-wrap">
+                        <div class="keywords">连衣裙</div>
+                    </div>
+                </div>
+                <div class="search-main">
+                    <div class="search-title-wrap">
+                        <div class="search-title">热门搜索</div>
+                    </div>
+                    <div class="search-keywords-wrap">
+                        <div class="keywords">连衣裙</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 搜索框 结束 -->
+        </div>
+    </div>
+    <script src="./javascripts/better-scroll.js"></script>
+</body>
+
+</html>

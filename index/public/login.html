@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>我的</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="javascripts/template-web.js"></script>
+    <script src="javascripts/axios.js"></script>
+    <script src="javascripts/better-scroll.js"></script>
+    <script src="./javascripts/flexible.js"></script>
+    <script src="./javascripts/login.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+
+<body>
+    <div class="page">
+        <!-- 会员登录  开始 -->
+        <div class="sub-header">
+            <div class="back"></div>
+            <div class="title">会员登录</div>
+        </div>
+        <!-- 会员登录  结束 -->
+
+        <!-- 输入框 开始  -->
+        <div class="main login-main">
+            <div class="code-wrap" style="margin-top: 0px;">
+                <input type="text" placeholder="手机号">
+            </div>
+            <div class="password-wrap">
+                <div class="password">
+                    <input type="password" placeholder="密码">
+                </div>
+                <div class="switch-wrap">
+                    <div class="van-switch" role="switch" aria-checked="false">
+                        <div class="van-switch__node"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sure-btn">登录</div>
+        </div>
+        <!-- 输入框  结束 -->
+        <!-- 忘记密码 开始  -->
+        <div class="fastreg-wrap">
+            <div>
+                <img src="./images/home/index/forget.png" alt="">
+                忘记密码
+            </div>
+            <div>
+                <img src="./images/home/index/reg.png" alt="">
+                快速登录
+            </div>
+        </div>
+        <!-- 忘记密码 结束 -->
+    </div>
+    <!-- 验证提示 -->
+    <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2014; display: none;">
+        <div class="van-toast__text"></div>
+    </div>
+    <!-- 验证提示 -->
+</body>
+
+</html>

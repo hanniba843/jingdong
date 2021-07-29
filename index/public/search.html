@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/search.css">
+    <script src="javascripts/template-web.js"></script>
+    <script src="javascripts/axios.js"></script>
+    <script src="javascripts/better-scroll.js"></script>
+    <script src="./javascripts/flexible.js"></script>
+    <!-- <script src="./javascripts/TailPart.js"></script> -->
+    <script src="./javascripts/search.js"></script>
+</head>
+
+<body>
+    <div class="page">
+        <!-- 头部 开始 -->
+        <div class="search-top">
+            <div class="search-header">
+                <div class="back"></div>
+                <div class="search-wrap">
+                    <div class="search-icon"></div>
+                    <div class="search-text"></div>
+                </div>
+                <div class="screen-btn">筛选</div>
+            </div>
+            <div class="order-main">
+                <div class="order-item">
+                    <div class="order-text">综合</div>
+                    <div class="order-icon"></div>
+                    <ul class="order-menu" style="display: none;">
+                        <li class="active">综合</li>
+                        <li>价格从低到高</li>
+                        <li>价格从高到低</li>
+                    </ul>
+                </div>
+                <div class="order-item">
+                    <div class="order-text">销量</div>
+                </div>
+            </div>
+        </div>
+        <!-- 头部 结束 -->
+
+        <!-- 主体 开始 -->
+        <div class="goods-main">
+            <!-- <div class="goods-list">
+                <div class="image"><img src="" alt=""></div>
+                <div class="goods-content">
+                    <div class="goods-title">摇椅</div>
+                    <div class="price">¥355.00</div>
+                    <div class="sales">
+                        销量<span>0</span>件
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <script id="goods-main" type="text/thml">
+            {{each }}
+            <div class="goods-list">
+                <div class="image"><img src={{$value.image}} alt=""></div>
+                <div class="goods-content">
+                    <div class="goods-title">{{$value.title}}</div>
+                    <div class="price">{{$value.price}}</div>
+                    <div class="sales">
+                        销量<span>0</span>件
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </script>
+        <script id="goods-main-2" type="text/thml">
+            {{each}}
+            <div class="goods-list">
+                <div class="image"><img src={{$value.image}} alt=""></div>
+                <div class="goods-content">
+                    <div class="goods-title">{{$value.title}}</div>
+                    <div class="price">{{$value.price}}</div>
+                    <div class="sales">
+                        销量<span>0</span>件
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </script>
+        <script>
+            var goodsMain = document.querySelector('.goods-main');
+            axios.get('http://vueshop.glbuys.com/api/home/index/goodsLevel?token=1ec949a15fb709370f').then((res) => {
+                console.log(res.data.data);
+                for (let i = 0; i < res.data.data.length; i++) {
+                    goodsMain.innerHTML += template('goods-main', res.data.data[i].items);
+                }
+                // goodsMain.innerHTML = template('goods-main', res.data.data[0].items);
+                // goodsMain.innerHTML = template('goods-main', res.data.data[1].items);
+                // goodsMain.innerHTML = template('goods-main', res.data.data[2].items);
+            });
+            axios.get('http://vueshop.glbuys.com/api/home/index/recom?token=1ec949a15fb709370f').then((
+                res) => {
+                console.log(res.data);
+                goodsMain.innerHTML = template('goods-main-2', res.data.data);
+                // for (let i = 0; i < res.data.data.length; i++) {
+                //     goodsMain.innerHTML += template('goods-main-2', res.data.data[i].items);
+                // }
+            });
+        </script>
+        <!-- 主体 结束 -->
+    </div>
+</body>
+
+</html>

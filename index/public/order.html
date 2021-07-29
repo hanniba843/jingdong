@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>确认订单</title>
+    <link rel="stylesheet" href="./css/order.css">
+    <script src="javascripts/template-web.js"></script>
+    <script src="javascripts/axios.js"></script>
+    <script src="javascripts/better-scroll.js"></script>
+    <script src="./javascripts/flexible.js"></script>
+    <script src="./javascripts/order.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+
+<body>
+    <div class="page">
+        <div class="sub-header">
+            <div class="back"></div>
+            <div class="title">确认订单</div>
+            <!---->
+        </div>
+        <div class="main">
+            <div class="address-wrap">
+                <div class="persion-info"><span>收货人：luo</span><span>18573038105</span></div>
+                <div class="address"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAD5ElEQVRoQ9WZgbFNQQyG8ypABagAFaACVIAKUAEqQAWoABWgAlSAClAB85nExHHP5s85e9+MzNx53rVnN3/+5E/2vBP7z+1ksv8XzOyGmZ01M/7NB/toZt/988bMvsw6dwYAnL1tZnfM7LLoGIBemNlLByU+9u+yPQBw/J6Z3feIx+4/UsRxFAMY6/l5JrkBK0/N7NlWIFsB4MirlCI4TURfm9m7IpzXzOymMxZgSKlbDrzFxhYApMpzPwXHiSAfotkxGIG9h/4Qzz/wQMj7dAFw4BPf/ZNHMdJEPnSxEDZh75J/f7cDogMA2kkbDCWBiW7U10DCBul31ReQTvxemgqAKL31QiTyqtqUDiwWwCZMEJjrSk2oAHCe4vvqzs+K/BIgTADivIsBIIamAMhFy4aVylRnVv9PoAgYVtaDAuCzyyVNBzCnYeQ/HR15vTg6sAKQC5eNOiMABUk0MVh730DOCELgsGFBVwCQN8YEVAcwirGOPkE+Z6NuSAlJXRw0QRgyXwH45o7QYGhWlbGG8SKMoscoyrDHZvao2sibHD1nmEYjAEjlBz9ISZ9cfKQL9RIpR0rAZui8IgY5ja6sSeoIQHaoYgqcIbWjPhE6T02UEmlmPz2Aq4BHjoV8kgYx14+Yj8NGRZdFQQkKdcPAt7rnaBPylEGLdAg1WQOQ2To3GDEobOoKU9IIpki71bpRAEA7OTgyKV89ENGklLqiBqnFVRGZWQNB90hlgtVuWm6qATWqwUw4t5YeOc0UKZXSsiokZBANVw4kv8nZmOuRzXyljDEElcK5aiCMnjKcfisAEdVyJnEaliCWdaM6z3Mxgw2baAUgp5GiGuEw0UYy494AE4wQsKKYPINVADgspExtPoqD1ZpoiuUMpgDIxdRhoXJS6SnleQqA02YhtF9poKYCyCzIF+4NFLRvfyoAfMm3JDpzJYNd/1EwlIef8u2vAwBFQk0YrpS+0AUQus/LMtRLuv11AOBQ7rarM3rX88WM1ApOFwC+xUyvDHkKFlKGwoXh9junLQDyTa0VrRU0+RraZnULgJmplNVNvXf/FYetAHJvoNi2qFJWHUnzDzG4B0BWJWYcXpl0LMYFVIe9NsnyHgA4m4eu8jVgQlfdHeRA7AXAQVGE6hvl7sVmCGYGgE49kCpIJvlfTpoKDbMA5IvM2tjNGvIeGe5cbE6FAQ7BMZxn1DhU1Px1h5rZVbRLNLMYiH0ziKzrvOxl0sR5amDv39X+4JgN4JAy8R0ApjvPxscAwL55rud3nOc79dW6Ur+/1xwLQDARl/ipaZPRHRMA58RLYWm2l8OeFh4bwBafWs/8AnfL9zFGfAHRAAAAAElFTkSuQmCC"
+                        alt="收货地址"><span>北京市北京市东城区das</span></div>
+                <div class="address-null" style="display: none;">您的收货地址为空,点击添加收货地址</div>
+                <div class="arrow"></div>
+                <div class="address-border-wrap">
+                    <div class="trapezoid style1"></div>
+                    <div class="trapezoid style2"></div>
+                    <div class="trapezoid style1"></div>
+                    <div class="trapezoid style2"></div>
+                    <div class="trapezoid style1"></div>
+                    <div class="trapezoid style2"></div>
+                    <div class="trapezoid style1"></div>
+                    <div class="trapezoid style2"></div>
+                    <div class="trapezoid style1"></div>
+                    <div class="trapezoid style2"></div>
+                </div>
+            </div>
+            <div class="goods-wrap">
+                <!-- <div class="goods-list">
+                    <div class="image"><img src="//vueshop.glbuys.com/uploadfiles/1524556409.jpg" alt=""></div>
+                    <div class="goods-param">
+                        <div class="title">高跟鞋女2018新款春季单鞋仙女甜美链子尖头防水台细跟女鞋一字带</div>
+                        <div class="attr"><span>颜色： 肉色</span><span>尺码： 37</span></div>
+                        <div class="amount">x 1</div>
+                        <div class="price">￥12.8</div>
+                    </div>
+                </div> -->
+            </div>
+            <ul class="total-wrap">
+                <!-- <li>商品总额</li>
+                <li>￥12.8</li> -->
+            </ul>
+            <ul class="total-wrap">
+                <!-- <li>运费</li>
+                <li>￥20</li> -->
+            </ul>
+        </div>
+        <div class="balance-wrap">
+            <div class="price-wrap"><span>实际金额：</span><span>￥32.8</span></div>
+            <div class="balance-btn">提交订单</div>
+        </div>
+    </div>
+</body>
+
+</html>
