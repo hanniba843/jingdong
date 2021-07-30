@@ -1,5 +1,5 @@
 window.onload = function () {
-    var num = window.localStorage.getItem('user');
+    var num = window.localStorage.getItem('users');
     // 头部获取
     const xhr = new XMLHttpRequest();
     xhr.open('GET',
@@ -267,26 +267,42 @@ window.onload = function () {
     $.get(
         'http://vueshop.glbuys.com/api/home/goods/info?gid='+num+'&type=spec&token=1ec949a15fb709370f',
         function(res){
-            $('.attr-wrap')[0].innerHTML =  `
-            <div class="attr-list">
-                <div class="attr-name">${res.data[0].title}</div>
-                <div class="val-wrap">
-                    ${res.data[0].values.map((v,i)=>{
-                        return `<span class="val">${v.value}</span>`
-                        }).join(' ')
-                    }
-                </div>
-            </div>
-            <div class="attr-list">
-                <div class="attr-name">${res.data[1].title}</div>
-                <div class="val-wrap">
-                    ${res.data[1].values.map((v,i)=>{
-                        return `<span class="val">${v.value}</span>`
-                        }).join(' ')
-                    }
-                </div>
-            </div>
-            `
+            // console.log(res.data.length);
+            if(res.data.length ==2){
+                $('.attr-wrap')[0].innerHTML =  `
+                            <div class="attr-list">
+                                <div class="attr-name">${res.data[0].title}</div>
+                                <div class="val-wrap">
+                                    ${res.data[0].values.map((v,i)=>{
+                                        return `<span class="val">${v.value}</span>`
+                                        }).join(' ')
+                                    }
+                                </div>
+                            </div>
+                            <div class="attr-list">
+                                <div class="attr-name">${res.data[1].title}</div>
+                                <div class="val-wrap">
+                                    ${res.data[1].values.map((v,i)=>{
+                                        return `<span class="val">${v.value}</span>`
+                                        }).join(' ')
+                                    }
+                                </div>
+                            </div>
+                            `
+            }else if(res.data.length==1){
+                $('.attr-wrap')[0].innerHTML =  `
+                            <div class="attr-list">
+                                <div class="attr-name">${res.data[0].title}</div>
+                                <div class="val-wrap">
+                                    ${res.data[0].values.map((v,i)=>{
+                                        return `<span class="val">${v.value}</span>`
+                                        }).join(' ')
+                                    }
+                                </div>
+                            </div>
+                            `
+            }
+            
         },
         "json"
     )
@@ -322,15 +338,16 @@ window.onload = function () {
 
     //   console.log($('.attr-wrap')[0].children);
       $(document).on('mouseenter','.val-wrap',function(){
-        // console.log($(".val-wrap")[0].children.length);
+        // console.log($(".val-wrap").length);
+        if($(".val-wrap").length==2){
             for(let i=0;i<$(".val-wrap")[0].children.length;i++){
                 $(".val-wrap")[0].children[i].onclick = function(){
                     for(let j=0;j<$(".val-wrap")[0].children.length;j++){
                         $(".val-wrap")[0].children[j].style.backgroundColor= '#efefef';
                         $(".val-wrap")[0].children[j].style.color = '#000';
                     }
-                    $(".val-wrap")[0].children[i].style.backgroundColor= '#fda208';
-                    $(".val-wrap")[0].children[i].style.color = '#fff';
+                        $(".val-wrap")[0].children[i].style.backgroundColor= '#fda208';
+                        $(".val-wrap")[0].children[i].style.color = '#fff';
                 }
             }
             for(let i=0;i<$(".val-wrap")[1].children.length;i++){
@@ -338,11 +355,24 @@ window.onload = function () {
                     for(let j=0;j<$(".val-wrap")[1].children.length;j++){
                         $(".val-wrap")[1].children[j].style.backgroundColor= '#efefef';
                         $(".val-wrap")[1].children[j].style.color = '#000';
-                    }
-                    $(".val-wrap")[1].children[i].style.backgroundColor= '#fda208';
-                    $(".val-wrap")[1].children[i].style.color = '#fff';
+                            }
+                        $(".val-wrap")[1].children[i].style.backgroundColor= '#fda208';
+                        $(".val-wrap")[1].children[i].style.color = '#fff';
                 }
             }
+        }else if($(".val-wrap").length==1){
+            for(let i=0;i<$(".val-wrap")[0].children.length;i++){
+                $(".val-wrap")[0].children[i].onclick = function(){
+                    for(let j=0;j<$(".val-wrap")[0].children.length;j++){
+                        $(".val-wrap")[0].children[j].style.backgroundColor= '#efefef';
+                        $(".val-wrap")[0].children[j].style.color = '#000';
+                    }
+                        $(".val-wrap")[0].children[i].style.backgroundColor= '#fda208';
+                        $(".val-wrap")[0].children[i].style.color = '#fff';
+                }
+            }
+        }
+            
         });
         $('.amount-input-wrap .amount-input input')[0].value  =1;
         $('.amount-input-wrap .btn')[0].onclick = function(){
@@ -452,6 +482,7 @@ window.onload = function () {
     let back = document.querySelector('.back');
     back.addEventListener('click', () => {
         window.history.back();
+        localStorage.removeItem('users');
     })
 
     // 选项卡功能

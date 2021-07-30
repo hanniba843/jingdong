@@ -12,31 +12,62 @@ window.onload = function(){
         }
     }
     arr.reverse();
+
     if(arr.length !=0){
-        for(var i=0;i<arr.length;i++){
-                arr[i] = arr[i].split(',');
-                arr1.push(arr[i]);
-                $('.box')[0].innerHTML += `
-                <div class="cart-list">
-                    <div class="select-btn active"></div>
-                    <div class="image-wrap">
-                        <div class="image"><img src=${arr1[i][3]}></div>
-                        <div class="del">删除</div>
-                    </div>
-                    <div class="goods-wrap">
-                        <div class="goods-title">${arr1[i][4]}</div>
-                        <div class="goods-attr"><span>颜色： ${arr1[i][0]}</span><span>尺码： ${arr1[i][1]}</span></div>
-                        <div class="buy-wrap">
-                            <div class="price">¥${arr1[i][5]}</div>
-                            <div class="amount-input-wrap">
-                                <div class="btn dec">- </div>
-                                <div class="amount-input"><input type="tel" value=${arr1[i][2]}></div>
-                                <div class="btn inc">+</div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            `
+        for(let i=0;i<arr.length;i++){
+                // arr[i] = arr[i].split(',');
+                // arr1.push(arr[i]);
+                // console.log(arr[i].split(',').length);
+                if(arr[i].split(',').length==6){
+                    arr[i] = arr[i].split(',');
+                    arr1.push(arr[i]);
+                    $('.box')[0].innerHTML += `
+                                <div class="cart-list">
+                                    <div class="select-btn active"></div>
+                                    <div class="image-wrap">
+                                        <div class="image"><img src=${arr1[i][3]}></div>
+                                        <div class="del">删除</div>
+                                    </div>
+                                    <div class="goods-wrap">
+                                        <div class="goods-title">${arr1[i][4]}</div>
+                                        <div class="goods-attr"><span>颜色： ${arr1[i][0]}</span><span>尺码： ${arr1[i][1]}</span></div>
+                                        <div class="buy-wrap">
+                                            <div class="price">¥${arr1[i][5]}</div>
+                                            <div class="amount-input-wrap">
+                                                <div class="btn dec">- </div>
+                                                <div class="amount-input"><input type="tel" value=${arr1[i][2]}></div>
+                                                <div class="btn inc">+</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            `
+                }else if(arr[i].split(',').length==5){
+                    arr[i] = arr[i].split(',');
+                    arr1.push(arr[i]);
+                    $('.box')[0].innerHTML += `
+                                <div class="cart-list">
+                                    <div class="select-btn active"></div>
+                                    <div class="image-wrap">
+                                        <div class="image"><img src=${arr1[i][2]}></div>
+                                        <div class="del">删除</div>
+                                    </div>
+                                    <div class="goods-wrap">
+                                        <div class="goods-title">${arr1[i][3]}</div>
+                                        <div class="goods-attr"><span>颜色： ${arr1[i][0]}</span></div>
+                                        <div class="buy-wrap">
+                                            <div class="price">¥${arr1[i][4]}</div>
+                                            <div class="amount-input-wrap">
+                                                <div class="btn dec">- </div>
+                                                <div class="amount-input"><input type="tel" value=${arr1[i][1]}></div>
+                                                <div class="btn inc">+</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            `
+                }
+            
             // 测试总价
             // console.log((arr1[i][5])*(arr1[i][2]));
             // TotalPrice += (arr1[i][5])*(arr1[i][2]); 
@@ -68,10 +99,12 @@ window.onload = function(){
             }
         }
         // 总价
+        // console.log($('.price')[2].innerHTML.substr(1, ));
+        // console.log($('.amount-input-wrap .amount-input input')[0].value);
         function total() {
             var sum = 0;
             for (let i = 0; i <$('.amount-input-wrap').length; i++) {
-                sum += (arr1[i][5])*$('.amount-input-wrap .amount-input input')[i].value;
+                sum += $('.price')[i].innerHTML.substr(1, )*$('.amount-input-wrap .amount-input input')[i].value;
 
             }
             $('.total')[0].children[1].innerHTML = '￥' + sum;
