@@ -404,14 +404,43 @@ window.onload = function () {
         // 加入购物车结束
 
 
+        
+
         // 点击收藏按钮 判断会员是否登录
-        $('.fav')[0].onclick = function(){
-            $('.van-toast--text')[0].style.display = 'block';
-            setTimeout(function(){
-                $('.van-toast--text')[0].style.display = 'none';
-            },1000);
-            $('.van-toast--text')[0].children[0].innerHTML = '请登录会员';
+        if(localStorage.getItem('ok')==1){
+            $('.fav')[0].onclick = function(){
+                axios({
+                    method:'get',
+                    url:'http://vueshop.glbuys.com/api/goods/fav?uid=484283066&gid='+num+'&token=1ec949a15fb709370f',
+                }).then((res) => {
+                    // console.log(res.data);
+                    if(res.data.status==1){
+                        $('.van-toast')[0].style.display = 'block';
+                        $('.van-toast')[0].children[0].innerHTML = res.data.data;
+                        setTimeout(function(){
+                            $('.van-toast')[0].style.display = 'none';
+                            $('.van-toast')[0].children[0].innerHTML = '';
+                        },1500)
+                    }else{
+                        $('.van-toast')[0].style.display = 'block';
+                        $('.van-toast')[0].children[0].innerHTML = res.data.data;
+                        setTimeout(function(){
+                            $('.van-toast')[0].style.display = 'none';
+                            $('.van-toast')[0].children[0].innerHTML = '';
+                        },1500)
+                    }
+                });
+            }
+        }else{
+            $('.fav')[0].onclick = function(){
+                $('.van-toast--text')[0].style.display = 'block';
+                setTimeout(function(){
+                    $('.van-toast--text')[0].style.display = 'none';
+                },1000);
+                $('.van-toast--text')[0].children[0].innerHTML = '请登录会员';
+            }
         }
+        
         // 点击收藏按钮 判断会员是否登录 结束
 }
 
