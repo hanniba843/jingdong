@@ -51,7 +51,7 @@ window.onload  = function(){
     let classifyIcon = document.querySelector('.classify-icon');
     classifyIcon.addEventListener('click',function(){
       window.location.href = 'classify.html';
-      window.localStorage.setItem('user',492);
+      localStorage.setItem('users',492);
     })  
 
 

@@ -24,7 +24,7 @@ window.onload = function(){
         // console.log(classifyWrap.children[0]); //获取节点
         classifyWrap.children[0].className = 'classify-item active';
         // 没有点击获取右侧
-        var num = window.localStorage.getItem('user');
+        var num = window.localStorage.getItem('users');
       //  console.log(num);
         $.get(
           'http://vueshop.glbuys.com/api/home/category/show?cid='+num+'&token=1ec949a15fb709370f',
@@ -54,7 +54,7 @@ window.onload = function(){
         }
         
         $('.classify-item')[num-492].className = 'classify-item active';
-        // console.log($('.classify-item')[1]);
+        console.log(num);
         // 没有点击获取右侧 结束
         for (let i = 0; i < classifyWrap.children.length; i++) {
             classifyWrap.children[i].onclick = function () {
@@ -64,8 +64,8 @@ window.onload = function(){
                 }
                 this.className = 'classify-item active';
                    num = res.data.ids[i].cid;
-                  //  console.log(res.data.ids[i].cid);
-                   localStorage.setItem('user',res.data.ids[i].cid)
+                   console.log(res.data.ids[i].cid);
+                   localStorage.setItem('users',res.data.ids[i].cid)
                 // 获取右侧信息开始
                 $.get(
                   'http://vueshop.glbuys.com/api/home/category/show?cid=' + num +
@@ -100,7 +100,7 @@ window.onload = function(){
                         for(let i = 0;i<$('ul').length;i++){
                           $('ul')[i].onclick = function(){
                             
-                              window.localStorage.setItem('users',arr[i])
+                              window.localStorage.setItem('user',arr[i])
                               location.href = 'item.html'
                           }
                       }

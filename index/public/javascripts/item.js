@@ -1,5 +1,5 @@
 window.onload = function () {
-    var num = window.localStorage.getItem('users');
+    var num = window.localStorage.getItem('user');
     // 头部获取
     const xhr = new XMLHttpRequest();
     xhr.open('GET',
@@ -482,7 +482,6 @@ window.onload = function () {
     let back = document.querySelector('.back');
     back.addEventListener('click', () => {
         window.history.back();
-        localStorage.removeItem('users');
     })
 
     // 选项卡功能
