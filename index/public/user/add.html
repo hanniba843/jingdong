@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/add.css">
+    <link rel="stylesheet" href="css/ydui.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="../javascripts/template-web.js"></script>
+    <script src="../javascripts/axios.js"></script>
+    <script src="../javascripts/better-scroll.js"></script>
+    <script src="../javascripts/flexible.js"></script>
+    <script src="./js/add.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+
+<body>
+    <!-- 添加收获地址 -->
+    <div class="page">
+        <div class="sub-header">
+            <div class="back"></div>
+            <div class="title">添加收货地址</div>
+            <!---->
+        </div>
+        <div class="main">
+            <ul>
+                <li>收货人</li>
+                <li><input type="text" placeholder="收货人姓名"></li>
+            </ul>
+            <ul>
+                <li>联系方式</li>
+                <li><input type="text" placeholder="联系人手机号"></li>
+            </ul>
+            <ul>
+                <li>所在地区</li>
+                <li class="cell-right cell-arrow"><input type="text" placeholder="请选择所在地区" readonly="" class="area"
+                        id="J_Address"></li>
+            </ul>
+            <ul>
+                <li>详细地址</li>
+                <li><input type="text" placeholder="街道详细地址"></li>
+            </ul>
+            <ul>
+                <li>设置为默认地址</li>
+                <li><input type="checkbox"></li>
+            </ul><button type="button" class="submit-save">保存</button>
+        </div>
+        <!---->
+
+    </div>
+    <!-- 添加收获地址结束 -->
+
+    <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2005; display: none;">
+        <div class="van-toast__text"></div>
+    </div>
+    <script src="js/ydui.flexible.js"></script>
+    <script type="text/javascript" src="js/ydui.citys.js"></script>
+    <script type="text/javascript" src="js/ydui.js"></script>
+    <script type="text/javascript">
+        /**
+         * 默认调用
+         */
+        ! function () {
+            var $target = $('#J_Address');
+
+            $target.citySelect();
+
+            $target.on('click', function (event) {
+                event.stopPropagation();
+                $target.citySelect('open');
+            });
+
+            $target.on('done.ydui.cityselect', function (ret) {
+                $(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
+            });
+        }();
+    </script>
+</body>
+
+</html>

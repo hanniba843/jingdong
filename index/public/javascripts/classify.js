@@ -54,7 +54,7 @@ window.onload = function(){
         }
         
         $('.classify-item')[num-492].className = 'classify-item active';
-        console.log(num);
+        // console.log(num);
         // 没有点击获取右侧 结束
         for (let i = 0; i < classifyWrap.children.length; i++) {
             classifyWrap.children[i].onclick = function () {
@@ -64,7 +64,7 @@ window.onload = function(){
                 }
                 this.className = 'classify-item active';
                    num = res.data.ids[i].cid;
-                   console.log(res.data.ids[i].cid);
+                  //  console.log(res.data.ids[i].cid);
                    localStorage.setItem('users',res.data.ids[i].cid)
                 // 获取右侧信息开始
                 $.get(

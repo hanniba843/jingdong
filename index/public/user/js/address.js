@@ -3,30 +3,34 @@ window.onload = function(){
     $('.back')[0].addEventListener('click',()=>{
         window.history.back();
     })
-    $('.back')[1].addEventListener('click',()=>{
-        window.history.back();
-    })
 
 
     // 显示添加收获地址
     $('.add-btn')[0].onclick = function(){
-        $('.page')[0].style.display = 'none';
-        $('.page')[1].style.display = 'block';
-    }
+        location.href = 'add.html';
+    }   
 
-    // 保存
-    var arr = [];
-    $('.submit-save')[0].onclick = function(){
-        // console.log($('.main ul')[0].children[1].children[0].value);//获取每一项的输入内容
-        for(let i=0;i<$('.main ul').length-1;i++){
-           arr.push($('.main ul')[i].children[1].children[0].value);
+    // 显示收获地址
+    axios({
+        url:'http://vueshop.glbuys.com//api/user/address/index?uid='+localStorage.getItem('uid')+'&token=1ec949a15fb709370f',
+    }).then((res) => {
+        // console.log(res.data.data);
+        $('.main')[0].innerHTML = res.data.data.map((v,i)=>{
+            return `
+                <div class="list">
+                    <div class="name-wrap"><span>${v.name}</span><span>${v.cellphone}</span></div>
+                    <div class="address">${v.province}${v.city}${v.area}${v.address}</div>
+                    <div class="right-arrow"></div>
+                </div>
+            `
+        }).join(' ')
+        // console.log($('.list')); 
+        for(let i =0;i<$('.list').length;i++){
+            // console.log(i);
+            $('.list')[i].onclick = function(){
+                console.log(i);
+            }
         }
-        $('.van-toast')[0].style.display = 'block';
-        $('.van-toast')[0].children[0].innerHTML = '修改成功';
-        setTimeout(function(){
-            $('.van-toast')[0].style.display = 'none';
-            $('.van-toast')[0].children[0].innerHTML = '';
-        },3000)
-        console.log(arr);
-    }
+    });
+    
 }

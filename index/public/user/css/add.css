@@ -139,50 +139,6 @@ input {
     margin-top: .3rem;
 }
 
-.list {
-    width: 100%;
-    height: 1.2rem;
-    border-bottom: 1px solid #efefef;
-    position: relative;
-    z-index: 1;
-}
-
-.list .name-wrap {
-    width: auto;
-    height: auto;
-    position: absolute;
-    left: 3%;
-    top: .2rem;
-    z-index: 1;
-    font-size: .28rem;
-}
-
-.list .name-wrap span {
-    padding-right: .3rem;
-}
-
-.list .address {
-    width: auto;
-    height: auto;
-    font-size: .24rem;
-    position: absolute;
-    z-index: 1;
-    left: 3%;
-    top: .7rem;
-}
-
-.list .right-arrow {
-    width: .3rem;
-    height: .3rem;
-    background-image: url();
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    position: absolute;
-    z-index: 1;
-    right: 3%;
-    top: .45rem;
-}
 
 
 /* 验证通知 开始 */
