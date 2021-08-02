@@ -31,7 +31,7 @@ window.onload = function(){
     // 获取订单
 
     for(let i=0;i<localStorage.length;i++){
-        if(localStorage.key(i).length ==7){
+        if(localStorage.key(i).length >8){
             var Order = localStorage.key(i);
             console.log(Order);
         }
@@ -44,7 +44,7 @@ window.onload = function(){
     obj.push(localStorage.getItem(Order).split(','))
     // console.log(localStorage.getItem(str).split(','));
     // console.log(obj[0]);
-    $('.main div')[0].innerHTML += `
+    $('.main div')[0].innerHTML = `
     <div class="order-list">
         <div class="ordernum-wrap">
             <div class="ordernum">订单编号：${Order}</div>
@@ -65,4 +65,64 @@ window.onload = function(){
     </div>
     `
 
+    // 获取评价
+    var gid = []
+    $('.main')[0].innerHTML = '' //先清空页面数据
+    return axios({
+        method: 'get',
+        url: 'http://vueshop.glbuys.com/api/user/myorder/reviewOrder?uid=' + localStorage.getItem('uid') + '&page=1&token=1ec949a15fb709370f'
+    }).then((res) => {
+        if (res.data.code == 200) {
+            for (let i = 1; i <= res.data.pageinfo.pagenum; i++) {
+                axios({//遍历渲染所有数据
+                    method: 'get',
+                    url: 'http://vueshop.glbuys.com/api/user/myorder/reviewOrder?uid=' + localStorage.getItem('uid') + '&page=' + i + '&token=1ec949a15fb709370f'
+                }).then((res) => {
+                    if (res.data.code == 200) {
+                        $('.main')[0].innerHTML += res.data.data.map((v, i) => {
+                            if (v.status == 0) v.status = '待付款' //判断付款状态
+                            else v.status = '已收货'
+                            return `
+        <div class="order-list">
+        <div class="ordernum-wrap">
+        <div class="ordernum">订单编号：${v.ordernum}</div>
+        <div class="status">${v.status}</div>
+        </div>
+        ${v.goods.map((v, i) => {
+                                gid.push(v.gid)
+                                if (v.isreview == 0) v.isreview = '评价'
+                                else v.isreview = '追加评价'
+                                return `
+            <div class="item-list">
+            <div class="image"><img src="${v.image}" alt=""></div>
+            <div class="title">${v.title}</div>
+            <div class="amount">x ${v.amount}</div>
+            <div class="status-btn">${v.isreview}</div>
+            </div>
+            `
+                            }).join('')}      
+        </div>`}
+                        ).join('')
+                        // $('.item-list').css('height', '5.2rem')
+                        $('.amount').css('bottom', '2rem')
+                        for (let i = 0; i < $('.order-list').length; i++) {
+                            //跳转详情页面
+                            $('.title')[i].onclick = function () {
+                                // localStorage.setItem('ordernum', arr[i])
+                                // location.href = 'orderdls.html'
+                            }
+                            //去评价
+                            $('.status-btn')[i].onclick = function () {
+                                // localStorage.setItem('ordernum', arr[i])
+                                // localStorage.setItem('gid', gid[i])
+                                // location.href = 'review.html'
+                            }
+
+                        }
+                    }
+                }
+                )
+            }
+        }
+    })
 }

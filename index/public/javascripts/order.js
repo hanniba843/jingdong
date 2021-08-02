@@ -2,9 +2,30 @@ window.onload = function(){
     // 返回上一个页面
     let back = document.querySelector('.back');
     back.addEventListener('click',()=>{
-        window.history.back();
+        // window.history.back();
+        location.href = 'cart.html'
     })
     
+    axios({ //获取地址栏
+        method: 'get',
+        url: 'http://vueshop.glbuys.com/api/user/address/info?uid=' + localStorage.getItem('uid') + '&aid=' + localStorage.getItem('aid') + '&token=1ec949a15fb709370f'
+    }).then((res) => {
+        console.log(res);
+        if (res.data.code == 200) {
+            // addsid = res.data.data.aid
+            $('.persion-info')[0].innerHTML = `
+        <span>收货人：${res.data.data.name}</span>
+        <span>${res.data.data.cellphone}</span>
+        `
+            $('.address')[0].innerHTML = `
+            <img src="./images/home/cart/map.png"alt="收货地址">
+            <span>${res.data.data.province}${res.data.data.city}${res.data.data.area}${res.data.data.address}</span>`
+            $('.address-null').css('display', 'none')
+        } else {
+            $('.address-null').css('display', 'block')
+        }
+    })
+
     // 获取购物车信息
      let arr = [];
      let arr1 = [];
@@ -44,13 +65,22 @@ window.onload = function(){
         <li>￥${arr1.length*10}</li>
     `
     $('.price-wrap span')[1].innerHTML = '￥'+(TotalMerchandise+(arr1.length*10))
-
+    console.log(arr);
     // 提交订单
     $('.balance-btn')[0].onclick = function(){
-        // 随机编号
-        let str = Math.random().toString().slice(-7);
-        localStorage.setItem(str,arr);
-        location.href = 'end.html';
-        
+        axios({
+            method: 'post',
+            url: 'http://vueshop.glbuys.com/api/order/add?token=1ec949a15fb709370f',
+            data: "uid=" + localStorage.getItem('uid') + "&freight=" + arr1.length*10 + "&addsid=" + localStorage.getItem('aid') +"&goodsData="+JSON.stringify(arr1)
+        }).then((res) => {
+            if (res.data.code == 200) {
+            location.href = 'end.html'
+            }
+        })
+    }
+
+    // 添加地址
+    $('.address-wrap')[0].onclick = function(){
+        location.href = 'http://127.0.0.1:8000/user/NewAddress.html';
     }
 }

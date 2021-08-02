@@ -28,7 +28,13 @@ window.onload = function(){
         for(let i =0;i<$('.list').length;i++){
             // console.log(i);
             $('.list')[i].onclick = function(){
-                console.log(i);
+                
+                axios({
+                    url:'http://vueshop.glbuys.com//api/user/address/index?uid='+localStorage.getItem('uid')+'&token=1ec949a15fb709370f',
+                }).then((res) => {
+                    console.log(res.data.data[i].aid);  
+                    location.href = 'mod.html?mod='+res.data.data[i].aid
+                });
             }
         }
     });

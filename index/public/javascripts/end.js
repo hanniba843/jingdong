@@ -5,14 +5,13 @@ window.onload = function(){
         window.history.back();
     })
 
-   console.log(localStorage.key(1).length ==8);
-    $('.ordernum')[0].innerHTML = '订单编号：'+localStorage.key(localStorage.length-1);
-    for(let i=0;i<localStorage.length;i++){
-        if(localStorage.key(i).length ==7){
-            var Order = localStorage.key(i);
-            console.log(Order);
-        }
-    }
+    //获取订单编号
+    axios({
+        method:'get',
+        url:'http://vueshop.glbuys.com/api/order/lastordernum?uid='+localStorage.getItem('uid')+'&token=1ec949a15fb709370f'
+    }).then((res)=>{
+        $('.ordernum')[0].innerHTML = `订单编号：${res.data.data.ordernum}`
+    })
 
 
     // 查看订单

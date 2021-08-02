@@ -4,11 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/mod.css">
+    <link rel="stylesheet" href="css/ydui.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="../javascripts/template-web.js"></script>
+    <script src="../javascripts/axios.js"></script>
+    <script src="../javascripts/better-scroll.js"></script>
+    <script src="../javascripts/flexible.js"></script>
+    <script src="./js/mod.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 </head>
 
 <body>
+    <div class="page">
+        <div data-v-c99de814="" class="sub-header">
+            <div class="back"></div>
+            <div class="title">修改收货地址</div>
+            <div class="right-btn">删除</div>
+        </div>
+        <div class="main">
+            <ul>
+                <li>收货人</li>
+                <li><input type="text" placeholder="收货人姓名"></li>
+            </ul>
+            <ul>
+                <li>联系方式</li>
+                <li><input type="text" placeholder="联系人手机号"></li>
+            </ul>
+            <ul>
+                <li>所在地区</li>
+                <li><input type="text" placeholder="请选择所在地区" readonly="" class="area"></li>
+            </ul>
+            <script src="js/ydui.flexible.js"></script>
+            <script type="text/javascript" src="js/ydui.citys.js"></script>
+            <script type="text/javascript" src="js/ydui.js"></script>
+            <script type="text/javascript">
+                /**
+                 * 默认调用
+                 */
+                ! function () {
+                    var $target = $('.area');
 
+                    $target.citySelect();
+
+                    $target.on('click', function (event) {
+                        event.stopPropagation();
+                        $target.citySelect('open');
+                    });
+
+                    $target.on('done.ydui.cityselect', function (ret) {
+                        $(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
+                    });
+                }();
+            </script>
+            <ul>
+                <li>详细地址</li>
+                <li><input type="text" placeholder="街道详细地址"></li>
+            </ul>
+            <ul>
+                <li>设置为默认地址</li>
+                <li><input type="checkbox"></li>
+            </ul><button type="button" class="submit-save">修改</button>
+        </div>
+        <!---->
+    </div>
+    <!-- 验证提示 -->
+    <div class="van-toast van-toast--middle van-toast--text" style="z-index: 2014; display: none;">
+        <div class="van-toast__text"></div>
+    </div>
+    <!-- 验证提示 -->
 </body>
 
 </html>
