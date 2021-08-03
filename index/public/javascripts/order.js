@@ -10,7 +10,7 @@ window.onload = function(){
         method: 'get',
         url: 'http://vueshop.glbuys.com/api/user/address/info?uid=' + localStorage.getItem('uid') + '&aid=' + localStorage.getItem('aid') + '&token=1ec949a15fb709370f'
     }).then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data.code == 200) {
             // addsid = res.data.data.aid
             $('.persion-info')[0].innerHTML = `
@@ -65,7 +65,8 @@ window.onload = function(){
         <li>￥${arr1.length*10}</li>
     `
     $('.price-wrap span')[1].innerHTML = '￥'+(TotalMerchandise+(arr1.length*10))
-    console.log(arr);
+    // console.log(arr1);
+    console.log($('.goods-wrap')[0].children);
     // 提交订单
     $('.balance-btn')[0].onclick = function(){
         axios({

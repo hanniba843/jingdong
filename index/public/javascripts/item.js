@@ -394,10 +394,8 @@ window.onload = function () {
          // 按钮进入购物车
         var arr = [];
         $('.sure-btn')[0].onclick = function(){
-            // console.log($('.val'));
             for(let i=0;i<$('.val').length;i++){
                 if($('.val')[i].style.backgroundColor== 'rgb(253, 162, 8)'&& $('.val')[i].style.color == 'rgb(255, 255, 255)'){
-                    // console.log($('.val')[i].innerText);
                     arr.push($('.val')[i].innerText);
                 }
             }
@@ -416,20 +414,9 @@ window.onload = function () {
             },1500)
 
             window.localStorage.setItem(num,arr);
-            // console.log(arr);
-            
-            // console.log($('.amount-input')[0].children[0].value);//数量
-            // console.log($(".goods-img")[0].children[0].src);//图片
-            // console.log($(".goods-wrap .goods-title")[0].innerText);//简介
-            // console.log($(".goods-wrap .price")[0].innerText);//价格
-            // console.log($('.attr-name')[0].nextElementSibling.children.length);
         }
-        
-        
-       
         $('#cart-icon')[0].onclick = function(){
             location.href = 'cart.html';
-            // console.log(num);
         }
         // 加入购物车结束
 
@@ -443,7 +430,6 @@ window.onload = function () {
                     method:'get',
                     url:'http://vueshop.glbuys.com/api/goods/fav?uid=484283066&gid='+num+'&token=1ec949a15fb709370f',
                 }).then((res) => {
-                    // console.log(res.data);
                     if(res.data.status==1){
                         $('.van-toast')[0].style.display = 'block';
                         $('.van-toast')[0].children[0].innerHTML = res.data.data;
@@ -470,7 +456,6 @@ window.onload = function () {
                 $('.van-toast--text')[0].children[0].innerHTML = '请登录会员';
             }
         }
-        
         // 点击收藏按钮 判断会员是否登录 结束
 }
 

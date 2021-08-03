@@ -65,5 +65,10 @@ window.onload  = function(){
             clickable:true,
           },
   })
+
+
+
+  
+  console.log(mySwiper);
 }
        
