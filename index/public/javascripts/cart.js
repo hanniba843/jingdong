@@ -139,15 +139,15 @@ window.onload = function(){
                 }
             }
             ofa = !ofa;
-            if($('.select-btn')[i].className == 'select-btn'){
-                $('.orderend-btn')[0].style.background = '#bfbfbf';
-                $('.total')[0].children[0].innerHTML = '￥0';
-                $('.total')[0].children[1].innerHTML = '￥0';
-            }else{
-                $('.orderend-btn')[0].style.background = '#cc0004';
-                $('.total')[0].children[0].innerHTML = '￥'+ ($('.box')[0].children.length*10);
-                total();
-            }
+            // if($('.select-btn')[i].className == 'select-btn'){
+            //     $('.orderend-btn')[0].style.background = '#bfbfbf';
+            //     $('.total')[0].children[0].innerHTML = '￥0';
+            //     $('.total')[0].children[1].innerHTML = '￥0';
+            // }else{
+            //     $('.orderend-btn')[0].style.background = '#cc0004';
+            //     $('.total')[0].children[0].innerHTML = '￥'+ ($('.box')[0].children.length*10);
+            //     total();
+            // }
         }
         // 全选按钮结束
         

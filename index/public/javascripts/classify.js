@@ -118,6 +118,18 @@ window.onload = function(){
             }
         }
     })
-
+    axios.get('http://vueshop.glbuys.com/api/home/public/hotwords?token=1ec949a15fb709370f').then((res) => {//渲染热门搜索
+    $('.search-keywords-wrap')[1].innerHTML = res.data.data.map((v, i) => {
+        return `<div class="keywords">${v.title}</div>`
+    }).join('')
+})
+$('.search-btn')[0].onclick = function () {//根据搜索框关键字进行搜索
+  if ($('input')[0].value == "") {
+      location.href = 'search.html'
+  } else {
+      localStorage.setItem('keywords', $('input')[0].value)
+      location.href = 'search.html'
+  }
+}
     
 }
